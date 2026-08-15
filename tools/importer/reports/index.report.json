@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://awrestaurants.com/",
+  "path": "index",
+  "timestamp": "2026-08-15T20:04:28.053Z",
+  "title": "A&W Restaurants",
+  "template": "homepage",
+  "blocks": [
+    "hero-overlay",
+    "cards-promo",
+    "carousel-coverflow",
+    "columns-promo",
+    "columns-panels"
+  ]
+}

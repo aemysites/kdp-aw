@@ -1,0 +1,38 @@
+{
+  "variantName": "carousel-coverflow",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-08-15T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://awrestaurants.com/",
+    "originPage": "A&W Restaurants homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + linked title per slide",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "swipable galleries of featured items",
+      "favorites / highlights carousels with image + title",
+      "rotating promotional showcases"
+    ],
+    "notSuitableFor": [
+      "single featured item (use hero or columns)",
+      "content that must all be visible without interaction"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-15T00:00:00.000Z"
+  }
+}

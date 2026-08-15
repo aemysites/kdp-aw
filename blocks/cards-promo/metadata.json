@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-promo",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-15T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://awrestaurants.com/",
+    "originPage": "A&W Restaurants homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "product",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "badge + image + linked title",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "limited-time offer / promotional product grids",
+      "menu item highlights with badges",
+      "clickable product tiles with image and title"
+    ],
+    "notSuitableFor": [
+      "text-only card lists",
+      "cards requiring long descriptions or multiple CTAs per card"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-15T00:00:00.000Z"
+  }
+}

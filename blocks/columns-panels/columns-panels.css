@@ -1,0 +1,200 @@
+/* columns-panels — App Promo (left) + Franchising (right) two-panel card
+   Values extracted from awrestaurants.com source computed styles. */
+
+.columns-panels.block {
+  background-color: var(--aw-orange-light);
+  box-shadow: 0 0 12px 0 rgb(0 0 0 / 8%);
+  overflow: hidden;
+}
+
+/* row: stacks on mobile, side-by-side on desktop */
+.columns-panels.block > div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.columns-panels.block > div > div {
+  flex: 1;
+}
+
+/* ---------- LEFT PANEL: app promo ---------- */
+.columns-panels-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--aw-white);
+  overflow: hidden;
+}
+
+.columns-panels-app-img {
+  margin: 0;
+  width: 100%;
+  max-width: 320px;
+  line-height: 0;
+}
+
+.columns-panels-app-img picture,
+.columns-panels-app-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.columns-panels-app-content {
+  padding: 24px 24px 40px;
+  text-align: center;
+}
+
+.columns-panels-app-content h2 {
+  margin: 0 0 8px;
+  color: var(--aw-brown);
+  font-size: 36px;
+  line-height: 0.95;
+  text-transform: none;
+}
+
+.columns-panels-promo-label {
+  margin: 24px 0 8px;
+  padding-top: 16px;
+  color: var(--aw-ink);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.columns-panels-promo-code {
+  display: inline-block;
+  margin: 0 auto 8px;
+  padding: 8px 16px;
+  border: 2px dashed var(--aw-orange);
+  border-radius: 8px;
+  color: var(--aw-orange);
+  font-family: var(--accent-font-family);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.columns-panels-badge {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 0;
+}
+
+.columns-panels-badge a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.columns-panels-badge img {
+  width: 156px;
+  height: auto;
+}
+
+/* ---------- RIGHT PANEL: franchising ---------- */
+.columns-panels-franchise {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-panels-franchise-img {
+  margin: 0;
+  line-height: 0;
+}
+
+.columns-panels-franchise-img picture,
+.columns-panels-franchise-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.columns-panels-franchise-content {
+  flex: 1;
+  padding: 32px 24px 40px;
+}
+
+.columns-panels-franchise-content h2 {
+  margin: 0 0 16px;
+  color: var(--aw-brown);
+  font-size: 44px;
+  line-height: 0.95;
+  text-transform: none;
+}
+
+.columns-panels-franchise-content p {
+  margin: 0 0 16px;
+  color: var(--aw-ink);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.columns-panels-franchise-content p:has(a) {
+  margin-top: 24px;
+}
+
+.columns-panels-franchise-content a.button:any-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+@media (width >= 900px) {
+  /* side-by-side 50/50 panels */
+  .columns-panels.block > div {
+    flex-direction: row;
+  }
+
+  .columns-panels.block > div > div {
+    flex: 1 1 50%;
+    width: 50%;
+  }
+
+  /* LEFT: phone image beside content */
+  .columns-panels-app {
+    flex-direction: row;
+    align-items: stretch;
+    padding: 0 12px;
+  }
+
+  .columns-panels-app-img {
+    position: relative;
+    flex: 0 0 50%;
+    max-width: none;
+    overflow: hidden;
+  }
+
+  .columns-panels-app-img picture {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .columns-panels-app-img img {
+    width: 145%;
+    max-width: none;
+    height: auto;
+  }
+
+  .columns-panels-app-content {
+    flex: 1;
+    align-self: center;
+    padding: 40px 24px;
+  }
+
+  /* RIGHT: image on top, orange band with content below */
+  .columns-panels-franchise-content {
+    padding: 48px;
+    margin: 0 24px 16px;
+  }
+
+  .columns-panels-franchise-content h2 {
+    font-size: 54px;
+    line-height: 0.95;
+  }
+}

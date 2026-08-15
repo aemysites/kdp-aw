@@ -1,0 +1,34 @@
+/*
+ * A&W Restaurants brand tokens
+ * Extracted from https://awrestaurants.com/
+ */
+
+:root {
+  /* brand colors */
+  --aw-orange: #f26c31;          /* primary CTA / accent orange */
+  --aw-orange-light: #ffefd9;    /* light orange section band (bg-orange-50) */
+  --aw-teal: #55a6a2;            /* teal gradient end */
+  --aw-teal-light: #8ed0d1;      /* teal gradient start */
+  --aw-black: #000;              /* hero black backdrop */
+  --aw-ink: #15181a;             /* body text (rgb 21,24,26) */
+  --aw-brown: #4f2c1e;           /* heading brown (text-brown, rgb 79,44,30) */
+  --aw-white: #fff;
+
+  /* semantic colors */
+  --background-color: #fff;
+  --light-color: #ffefd9;
+  --dark-color: #000;
+  --text-color: #15181a;
+  --link-color: #f26c31;
+  --link-hover-color: #d4551f;
+
+  /* fonts */
+  --heading-font-family: karmina, karmina-fallback, "Arial Black", sans-serif;
+  --body-font-family: ttfors, ttfors-fallback, arial, sans-serif;
+  --accent-font-family: paul-slab, georgia, serif;
+
+  /* section + layout spacing */
+  --section-padding: 0;
+  --nav-height: 98px;
+  --content-max-width: 1320px;
+}

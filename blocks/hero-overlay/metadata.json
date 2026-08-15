@@ -1,0 +1,38 @@
+{
+  "variantName": "hero-overlay",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-08-15T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://awrestaurants.com/",
+    "originPage": "A&W Restaurants homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "background image + heading + 2 CTAs",
+    "buttonCount": 2,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "homepage hero banners",
+      "campaign landing pages with a full-bleed background image and overlaid text",
+      "product/promo intros with CTAs over imagery"
+    ],
+    "notSuitableFor": [
+      "text-only intros without a background image",
+      "pages needing multiple content elements below the banner"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-15T00:00:00.000Z"
+  }
+}

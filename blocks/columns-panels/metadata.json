@@ -1,0 +1,38 @@
+{
+  "variantName": "columns-panels",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-15T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://awrestaurants.com/",
+    "originPage": "A&W Restaurants homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "two distinct content panels side-by-side, each with heading + media + CTA",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "two adjacent promo panels (e.g. app download + franchising)",
+      "side-by-side content blocks each with their own heading, image and CTA",
+      "split informational panels with differing backgrounds"
+    ],
+    "notSuitableFor": [
+      "repeating uniform card grids (use cards)",
+      "single-column stacked content"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-15T00:00:00.000Z"
+  }
+}

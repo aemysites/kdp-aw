@@ -1,0 +1,38 @@
+{
+  "variantName": "columns-promo",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-15T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://awrestaurants.com/",
+    "originPage": "A&W Restaurants homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + paragraph + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "image-beside-text promotional callouts on a colored band",
+      "sign-up / membership promos",
+      "two-column feature with a single CTA"
+    ],
+    "notSuitableFor": [
+      "grids of repeating items (use cards)",
+      "three-or-more equal informational columns"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-15T00:00:00.000Z"
+  }
+}

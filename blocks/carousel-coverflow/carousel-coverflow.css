@@ -1,0 +1,225 @@
+/* Block: carousel-coverflow -- "Rooty's Favorites" coverflow */
+
+/* Full-width light-orange band (source: .bg-orange-50 #ffefd9, pad 24 12 128) */
+.carousel-coverflow-wrapper {
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-coverflow.block {
+  position: relative;
+  background-color: var(--aw-orange-light);
+  padding: 24px 0 64px;
+  overflow: hidden;
+}
+
+@media (width >= 900px) {
+  .carousel-coverflow.block {
+    padding: 24px 0 96px;
+  }
+}
+
+.carousel-coverflow .carousel-coverflow-slides-container {
+  position: relative;
+}
+
+.carousel-coverflow .carousel-coverflow-slides,
+.carousel-coverflow .carousel-coverflow-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* card width drives both slide size and centering padding */
+.carousel-coverflow {
+  --coverflow-card-width: min(66vw, 260px);
+}
+
+@media (width >= 900px) {
+  .carousel-coverflow {
+    --coverflow-card-width: min(30vw, 380px);
+  }
+}
+
+/* horizontal coverflow track */
+.carousel-coverflow .carousel-coverflow-slides {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+
+  /* center the first/last card in the viewport */
+  padding: 24px calc(50% - (var(--coverflow-card-width) / 2));
+  scroll-padding-inline: calc(50% - (var(--coverflow-card-width) / 2));
+}
+
+.carousel-coverflow .carousel-coverflow-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* each slide -- one card slot; neighbors peek and shrink */
+.carousel-coverflow .carousel-coverflow-slide {
+  flex: 0 0 var(--coverflow-card-width);
+  width: var(--coverflow-card-width);
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  transform: scale(0.78);
+  transform-origin: center top;
+  transition: transform 0.35s ease;
+}
+
+/* active slide scales up to full size (JS sets aria-hidden="false") */
+.carousel-coverflow .carousel-coverflow-slide[aria-hidden='false'] {
+  transform: scale(1);
+  z-index: 1;
+}
+
+/* image card -- square, rounded 16px, clipped */
+.carousel-coverflow .carousel-coverflow-slide .carousel-coverflow-slide-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.carousel-coverflow .carousel-coverflow-slide .carousel-coverflow-slide-image picture,
+.carousel-coverflow .carousel-coverflow-slide .carousel-coverflow-slide-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* title below image -- centered, TT Fors, not uppercase */
+.carousel-coverflow .carousel-coverflow-slide .carousel-coverflow-slide-content {
+  width: 100%;
+  text-align: center;
+}
+
+.carousel-coverflow .carousel-coverflow-slide .carousel-coverflow-slide-content h2 {
+  margin: 16px 0 8px;
+  font-family: var(--body-font-family);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: none;
+  color: var(--aw-ink);
+}
+
+.carousel-coverflow .carousel-coverflow-slide .carousel-coverflow-slide-content a:any-link {
+  color: var(--aw-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.carousel-coverflow .carousel-coverflow-slide .carousel-coverflow-slide-content a:hover {
+  color: var(--aw-orange);
+  text-decoration: none;
+}
+
+/* navigation arrows -- orange chevrons, no background */
+.carousel-coverflow .carousel-coverflow-navigation-buttons {
+  position: absolute;
+  top: 40%;
+  left: 8px;
+  right: 8px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (width >= 900px) {
+  .carousel-coverflow .carousel-coverflow-navigation-buttons {
+    left: 24px;
+    right: 24px;
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-coverflow .carousel-coverflow-navigation-buttons button {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--aw-orange);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: color 0.2s;
+}
+
+@media (width >= 900px) {
+  .carousel-coverflow .carousel-coverflow-navigation-buttons button {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+.carousel-coverflow .carousel-coverflow-navigation-buttons button:hover,
+.carousel-coverflow .carousel-coverflow-navigation-buttons button:focus-visible {
+  color: var(--link-hover-color);
+}
+
+/* chevron glyphs */
+.carousel-coverflow .carousel-coverflow-navigation-buttons button::after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 3px);
+  width: 16px;
+  height: 16px;
+  border: 3px solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-coverflow .carousel-coverflow-navigation-buttons button.slide-next::after {
+  left: calc(50% - 3px);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* pagination -- brown pill dots */
+.carousel-coverflow .carousel-coverflow-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 8px;
+  margin-top: 8px;
+  padding: 12px;
+  line-height: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-coverflow .carousel-coverflow-slide-indicator button {
+  width: 32px;
+  height: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background-color: rgb(79 44 30);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.carousel-coverflow .carousel-coverflow-slide-indicator button:disabled,
+.carousel-coverflow .carousel-coverflow-slide-indicator button:hover,
+.carousel-coverflow .carousel-coverflow-slide-indicator button:focus-visible {
+  opacity: 1;
+}

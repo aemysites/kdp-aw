@@ -1,0 +1,111 @@
+/* Block: columns-promo -- "Rooty's Mug Club" promo
+ * Two-column promo (script image + text/CTA) on a teal radial-gradient band.
+ * The band is self-provided here so the block renders correctly whether or not
+ * the section carries the `teal-gradient` section-metadata style.
+ * Values extracted from source computed styles at awrestaurants.com/.
+ */
+
+.columns-promo {
+  background: radial-gradient(circle, var(--aw-teal-light) 0%, var(--aw-teal) 100%);
+  margin: 0 -24px;
+  padding: 48px 24px;
+  color: var(--aw-white);
+}
+
+/* row: stacked on mobile, image column hidden (source uses d-none d-lg-block) */
+.columns-promo > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.columns-promo > div > .columns-promo-img-col {
+  display: none;
+}
+
+.columns-promo img {
+  display: block;
+  width: auto;
+  max-width: 304px;
+  height: auto;
+}
+
+/* text column */
+.columns-promo > div > div {
+  text-align: left;
+}
+
+.columns-promo h2 {
+  margin: 0 0 8px;
+  color: #4f2c1e;
+  font-family: var(--heading-font-family);
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 0.95;
+  text-transform: none;
+}
+
+.columns-promo p {
+  margin: 0 0 16px;
+  color: var(--aw-ink);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 28px;
+}
+
+/* Sign Up CTA -- white fill / orange text (source .secondary style).
+   This project's decorateButtons() only buttonizes links wrapped in
+   strong/em, so the authored plain <p><a> stays a bare link. Style the
+   standalone paragraph link here (and cover the .button case if a future
+   author adds formatting). */
+.columns-promo p a:only-child,
+.columns-promo a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  border: 1px solid var(--aw-white);
+  border-radius: 50px;
+  padding: 0.65em 1.5em;
+  background-color: var(--aw-white);
+  color: var(--aw-orange);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.columns-promo p a:only-child:hover,
+.columns-promo p a:only-child:focus-visible,
+.columns-promo a.button:any-link:hover,
+.columns-promo a.button:any-link:focus-visible {
+  border-color: var(--aw-orange);
+  background-color: var(--aw-orange);
+  color: var(--aw-white);
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  .columns-promo > div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+  }
+
+  /* show the script image column on desktop */
+  .columns-promo > div > .columns-promo-img-col {
+    display: block;
+    flex: 0 0 auto;
+  }
+
+  .columns-promo > div > div {
+    flex: 0 1 547px;
+  }
+
+  .columns-promo h2 {
+    font-size: 54px;
+  }
+}

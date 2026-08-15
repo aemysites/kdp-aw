@@ -1,0 +1,139 @@
+/* Block: hero-overlay
+ * Full-bleed background image with overlaid heading (top-left) and stacked CTA buttons.
+ * Values extracted from https://awrestaurants.com/ computed styles.
+ * See migration-work/hero-overlay-extracted.css
+ */
+
+/* full-width: override EDS section max-width */
+.hero-overlay-container .hero-overlay-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+/* row 1 = background image (in normal flow, defines block height) */
+.hero-overlay > div:first-child {
+  margin: 0;
+}
+
+.hero-overlay > div:first-child picture,
+.hero-overlay > div:first-child img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-overlay > div:first-child img {
+  aspect-ratio: 2800 / 1200;
+  object-fit: cover;
+}
+
+/* row 2 = content overlay (heading + CTAs) positioned over the image */
+.hero-overlay > div:last-child {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  display: flex;
+}
+
+.hero-overlay > div:last-child > div {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--content-max-width, 1320px);
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--aw-white);
+}
+
+/* heading — top-left, white, uppercase */
+.hero-overlay h1,
+.hero-overlay h2 {
+  margin: 0 0 8px;
+  color: var(--aw-white);
+  font-family: var(--heading-font-family);
+  font-weight: 900;
+  font-size: var(--heading-font-size-xxl);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+/* CTA links (EDS leaves them as bare <a> in <p>) rendered as pill buttons */
+.hero-overlay > div:last-child p {
+  margin: 0;
+  width: 100%;
+  max-width: 306px;
+}
+
+.hero-overlay > div:last-child p + p {
+  margin-top: 16px;
+}
+
+.hero-overlay > div:last-child p:first-of-type {
+  margin-top: 24px;
+}
+
+.hero-overlay > div:last-child p a:any-link {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 12.8px 24px;
+  border: 1px solid var(--aw-orange);
+  border-radius: 50px;
+  background-color: var(--aw-orange);
+  color: var(--aw-white);
+  font-family: var(--body-font-family);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* second CTA — white fill, orange text */
+.hero-overlay > div:last-child p:nth-of-type(2) a:any-link {
+  border-color: var(--aw-white);
+  background-color: var(--aw-white);
+  color: var(--aw-orange);
+}
+
+.hero-overlay > div:last-child p a:any-link:hover,
+.hero-overlay > div:last-child p a:any-link:focus-visible {
+  border-color: var(--link-hover-color);
+  background-color: var(--link-hover-color);
+  color: var(--aw-white);
+}
+
+/* no-image fallback: dark backdrop so white text stays legible */
+.hero-overlay.no-image {
+  background-color: var(--aw-black);
+}
+
+.hero-overlay.no-image > div:last-child {
+  position: static;
+}
+
+@media (width >= 900px) {
+  /* heading + CTAs offset from the left edge, aligned with source grid */
+  .hero-overlay > div:last-child > div {
+    padding: 96px 12px 0;
+    padding-left: max(122px, calc((100% - var(--content-max-width, 1320px)) / 2 + 122px));
+  }
+
+  .hero-overlay h1,
+  .hero-overlay h2 {
+    max-width: 660px;
+  }
+
+  .hero-overlay > div:last-child p:first-of-type {
+    margin-top: 56px;
+  }
+}

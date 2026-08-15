@@ -1,0 +1,90 @@
+/* cards-promo -- promotional product cards
+   Design extracted from awrestaurants.com homepage LTO grid.
+   Decorated DOM: .cards-promo > ul > li
+     li > .cards-promo-card-image (picture)
+     li > .cards-promo-card-body (badge <p> + <h2><a> title) */
+
+.cards-promo > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px 24px;
+}
+
+/* card box */
+.cards-promo > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--aw-white);
+  border-radius: 16px;
+  box-shadow: rgb(0 0 0 / 12%) 0 0 8px 0;
+}
+
+/* image: rounded top corners, fills card width */
+.cards-promo .cards-promo-card-image {
+  line-height: 0;
+}
+
+.cards-promo .cards-promo-card-image img {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: contain;
+  border-radius: 16px 16px 0 0;
+}
+
+/* body holds badge + title */
+.cards-promo .cards-promo-card-body {
+  margin: 16px 24px;
+}
+
+/* badge: orange rotated banner overhanging the top-left corner */
+.cards-promo .cards-promo-card-body p {
+  position: absolute;
+  top: -14px;
+  left: 16px;
+  margin: 0;
+  padding: 4px 12px;
+  background-color: var(--aw-orange);
+  color: var(--aw-white);
+  font-family: var(--accent-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0.24px;
+  white-space: nowrap;
+  transform: rotate(-10deg) scale(1.15);
+  transform-origin: left top;
+}
+
+/* title */
+.cards-promo .cards-promo-card-body h2 {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 22.8px;
+  text-transform: none;
+  color: var(--aw-ink);
+}
+
+.cards-promo .cards-promo-card-body h2 a:any-link {
+  color: var(--aw-ink);
+  text-decoration: none;
+}
+
+.cards-promo .cards-promo-card-body h2 a:hover {
+  text-decoration: none;
+}
+
+/* desktop: ~2 cards per row */
+@media (width >= 900px) {
+  .cards-promo > ul > li {
+    width: calc(50% - 12px);
+    max-width: 445px;
+  }
+}

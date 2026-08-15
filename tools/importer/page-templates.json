@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://awrestaurants.com/"
+      ],
+      "coverageGaps": [],
+      "description": "A&W Restaurants homepage with hero banner, limited-time offers grid, favorites carousel, mug club sign-up, app promo and franchising panels",
+      "blocks": [
+        {
+          "name": "hero-overlay",
+          "instances": [
+            "#main > div.px-0.bg-white.container > div.container-fluid"
+          ]
+        },
+        {
+          "name": "cards-promo",
+          "instances": [
+            "#main > div.px-0.bg-white.container > div.container"
+          ]
+        },
+        {
+          "name": "carousel-coverflow",
+          "instances": [
+            "div.swiper.swiper-rootys-favorites"
+          ]
+        },
+        {
+          "name": "columns-promo",
+          "instances": [
+            "div.justify-content-center.d-flex.align-items-stretch.bg-gradient-teal.row"
+          ]
+        },
+        {
+          "name": "columns-panels",
+          "instances": [
+            "div.bg-orange-50.d-flex.align-items-stretch.row"
+          ]
+        },
+        {
+          "name": "section-favorites",
+          "instances": [
+            "#main > div.bg-orange-50.pt-4.container > div.row:nth-of-type(1)"
+          ],
+          "section": "orange-light"
+        },
+        {
+          "name": "section-mug-club",
+          "instances": [
+            "div.justify-content-center.d-flex.align-items-stretch.bg-gradient-teal.row"
+          ],
+          "section": "teal-gradient"
+        },
+        {
+          "name": "section-app-franchising",
+          "instances": [
+            "div.bg-orange-50.d-flex.align-items-stretch.row"
+          ],
+          "section": "orange-light"
+        }
+      ]
+    }
+  ]
+}
