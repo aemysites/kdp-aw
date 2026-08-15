@@ -1,17 +1,17 @@
-import { getMetadata } from '../../scripts/aem.js';
-
 // A&W footer: a fixed app-style bottom navigation bar with icon shortcuts.
-// Content (icons + labels + links) is authored in /content/footer.plain.html.
+// Content (icons + labels + links) is authored in the footer document.
 
 /**
- * Fetch the footer fragment (localhost first, then DA/EDS production path).
- * @param {string} footerPath path to the footer doc without the .plain.html suffix
+ * Fetch the footer fragment. Tries the local content path first (aem up serves
+ * content/ under /content), then falls back to the root path used by DA/EDS
+ * production, where the footer doc lives at /footer (served as
+ * /footer.plain.html).
  * @returns {Promise<Document|null>}
  */
-async function fetchFooter(footerPath) {
+async function fetchFooter() {
   let resp = await fetch('/content/footer.plain.html');
   if (!resp.ok) {
-    resp = await fetch(`${footerPath}.plain.html`);
+    resp = await fetch('/footer.plain.html');
   }
   if (!resp.ok) return null;
   const html = await resp.text();
@@ -23,10 +23,7 @@ async function fetchFooter(footerPath) {
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/content/footer';
-
-  const doc = await fetchFooter(footerPath);
+  const doc = await fetchFooter();
   block.textContent = '';
 
   const footer = document.createElement('div');

@@ -1,18 +1,17 @@
-import { getMetadata } from '../../scripts/aem.js';
-
 // A&W header: solid white top bar (Set Location · logo · hamburger) that opens
-// a full-screen brown navigation drawer. Content is authored in
-// /content/nav.plain.html; this script reads that DOM and wires up behavior.
+// a full-screen brown navigation drawer. Content is authored in the nav
+// document; this script reads that DOM and wires up behavior.
 
 /**
- * Fetch the nav fragment (localhost first, then DA/EDS production path).
- * @param {string} navPath path to the nav doc without the .plain.html suffix
+ * Fetch the nav fragment. Tries the local content path first (aem up serves
+ * content/ under /content), then falls back to the root path used by DA/EDS
+ * production, where the nav doc lives at /nav (served as /nav.plain.html).
  * @returns {Promise<Document|null>}
  */
-async function fetchNav(navPath) {
+async function fetchNav() {
   let resp = await fetch('/content/nav.plain.html');
   if (!resp.ok) {
-    resp = await fetch(`${navPath}.plain.html`);
+    resp = await fetch('/nav.plain.html');
   }
   if (!resp.ok) return null;
   const html = await resp.text();
@@ -40,11 +39,7 @@ function toggleDrawer(nav, force) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // resolve nav path from block metadata, default to the nav doc
-  const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/content/nav';
-
-  const doc = await fetchNav(navPath);
+  const doc = await fetchNav();
   block.textContent = '';
 
   const nav = document.createElement('nav');
