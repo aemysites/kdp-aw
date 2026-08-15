@@ -1,5 +1,5 @@
-# Your Project's Title...
-Your project's description...
+# EDS project for A&W
+Migrating https://awrestaurants.com/ to EDS
 
 ## Environments
 - Preview: https://main--kdp-aw--aemysites.aem.page/
