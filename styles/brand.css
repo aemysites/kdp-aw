@@ -29,6 +29,6 @@
 
   /* section + layout spacing */
   --section-padding: 0;
-  --nav-height: 98px;
+  --nav-height: 48px;
   --content-max-width: 1320px;
 }
