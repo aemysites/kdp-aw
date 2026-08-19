@@ -2,10 +2,10 @@
   "type": "da",
   "sites": {
     "kdp-aw": {
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
       "previewOrg": "aemysites",
       "previewSite": "kdp-aw",
-      "contentHostUrl": "https://content.da.live/aemysites/kdp-aw/",
-      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+      "contentHostUrl": "https://content.da.live/aemysites/kdp-aw/"
     }
   }
 }
